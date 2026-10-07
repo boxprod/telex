@@ -11,8 +11,10 @@ Each app has its own Lettermint project: its own API token, logs, webhook and re
 
 ```ruby
 # Gemfile
-gem "telex", github: "boxprod/telex"
+gem "telex"
 ```
+
+Or `gem "telex", github: "boxprod/telex"` to follow `main` between releases.
 
 ```yaml
 # bin/rails credentials:edit
@@ -98,4 +100,12 @@ end
 bundle install
 bin/rails db:migrate
 bin/rails test
+```
+
+## Releasing
+
+```sh
+# bump lib/telex/version.rb, commit, then:
+git tag -a vX.Y.Z -m "X.Y.Z" && git push origin main vX.Y.Z
+gem build telex.gemspec && gem push telex-X.Y.Z.gem   # asks for a one-time code
 ```
