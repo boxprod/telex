@@ -69,10 +69,6 @@ What Telex adds to each message before Action Mailbox sees it:
 - A message that arrives twice is kept once: Action Mailbox ignores a source it already has.
 - The links are secrets: the webhook's `data` is filtered from the request log and the job does not log its arguments.
 
-### Deploying with a private gem
-
-As for [ticket](https://github.com/boxprod/ticket#deploying-with-a-private-gem): the Docker build needs a token with **Contents: read** on `boxprod/telex`, passed as the `BUNDLE_GITHUB__COM` build secret.
-
 ## Testing in an app
 
 To test a mailbox, Action Mailbox's own `receive_inbound_email_from_mail` is the simplest. To test the webhook end to end:

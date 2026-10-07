@@ -10,8 +10,7 @@ Gem::Specification.new do |spec|
   spec.license     = "MIT"
   spec.required_ruby_version = ">= 3.3"
 
-  # Private: installed from GitHub, never pushed to RubyGems.
-  spec.metadata["allowed_push_host"] = "https://rubygems.invalid"
+  spec.metadata["rubygems_mfa_required"] = "true"
   spec.metadata["source_code_uri"] = spec.homepage
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
