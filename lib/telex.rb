@@ -25,6 +25,11 @@ module Telex
       Rails.application.credentials.dig(:lettermint, :webhook_secret) || ENV["LETTERMINT_WEBHOOK_SECRET"]
     end
 
+    # Whether the app loads Action Mailbox, without which Telex only sends.
+    def receiving?
+      defined?(ActionMailbox::Engine) ? true : false
+    end
+
     # Replaced in tests; anything that answers #fetch(url) with the message's source.
     attr_writer :download
 

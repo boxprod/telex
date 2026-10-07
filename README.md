@@ -36,7 +36,7 @@ The sending domain must be verified in the Lettermint project (SPF, DKIM, return
 
 ### Receiving
 
-Install Action Mailbox if the app does not have it yet (it needs Active Storage):
+Install Action Mailbox if the app does not have it yet (it needs Active Storage). Without it, Telex only sends:
 
 ```sh
 bin/rails action_mailbox:install db:migrate

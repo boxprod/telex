@@ -8,5 +8,11 @@ module Telex
         add_delivery_method :lettermint, Mail::SMTP, Telex::SMTP_SETTINGS.merge(password: Telex.api_token)
       end
     end
+
+    # An app that only sends does not load Action Mailbox: the ingress is left out, or eager
+    # loading it would stop the app from booting.
+    initializer "telex.without_action_mailbox", before: :set_autoload_paths do
+      Rails.autoloaders.main.ignore(root.join("app/controllers/action_mailbox")) unless Telex.receiving?
+    end
   end
 end
